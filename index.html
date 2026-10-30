@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Navigating the Unknown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<!-- Entry screen: the visitor's choice here is the click browsers require before sound can play -->
+<div class="entry" id="entry" role="dialog" aria-modal="true" aria-labelledby="entry-title" aria-describedby="entry-note">
+  <div class="entry-inner">
+    <h2 class="entry-title" id="entry-title">Start the journey</h2>
+    <div class="entry-actions">
+      <button class="entry-btn" type="button" data-sound="on">Enter with sound</button>
+      <button class="entry-btn" type="button" data-sound="off">Enter without sound</button>
+    </div>
+    <p class="entry-note" id="entry-note">Content note: This material explores themes of death and God.</p>
+  </div>
+</div>
+
+<button class="menu-btn pill" id="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+<nav class="menu" id="menu" hidden aria-label="Chapters">
+  <ol>
+    <li><a class="display" href="#a-new-life"><span>I</span><span>A New Life</span></a></li>
+    <li><a class="display" href="#tragedy-strikes"><span>II</span><span>A Loss</span></a></li>
+    <li><a class="display" href="#the-diagnosis"><span>III</span><span>A Diagnosis</span></a></li>
+    <li><a class="display" href="#never-quit"><span>IV</span><span>A New Adventure</span></a></li>
+  </ol>
+</nav>
+
+<!-- Story navigation: numerals and ticks on the right; headings and subheadings slide out on hover or keyboard focus -->
+<nav class="side-nav" id="side-nav" aria-label="Story">
+  <ol>
+    <li>
+      <a href="#a-new-life"><span class="sn-label sn-label--ch">A New Life</span><span class="sn-num">I</span></a>
+      <ol class="sn-sub">
+        <li><a href="#a-dream-realized"><span class="sn-label">A Dream Realized</span><span class="sn-tick"></span></a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#tragedy-strikes"><span class="sn-label sn-label--ch">A Loss</span><span class="sn-num">II</span></a>
+      <ol class="sn-sub">
+        <li><a href="#kindness-of-strangers"><span class="sn-label">The Kindness of Strangers</span><span class="sn-tick"></span></a></li>
+        <li><a href="#part-grieving"><span class="sn-label">Grieving</span><span class="sn-tick"></span></a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#the-diagnosis"><span class="sn-label sn-label--ch">A Diagnosis</span><span class="sn-num">III</span></a>
+      <ol class="sn-sub">
+        <li><a href="#the-diagnosis-scene"><span class="sn-label">How to Cope</span><span class="sn-tick"></span></a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#never-quit"><span class="sn-label sn-label--ch">A New Adventure</span><span class="sn-num">IV</span></a>
+      <ol class="sn-sub">
+        <li><a href="#new-memories"><span class="sn-label">New Memories</span><span class="sn-tick"></span></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+
+<!-- Recolours line drawings: dark lines become Mother of Pearl (#E9D4C3), light fills become see-through -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="to-pearl" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="0 0 0 0 0.9137
+                                         0 0 0 0 0.8314
+                                         0 0 0 0 0.7647
+                                         -0.2126 -0.7152 -0.0722 1 0"/>
+  </filter>
+</svg>
+
+<main>
+  <!-- ===== Hero: four paintings and swaying flowers ===== -->
+  <section class="landing" id="hero" aria-label="Navigating the Unknown">
+    <!-- Bird audio: add your file at audio/hero.mp3. It starts on load where the browser allows,
+         otherwise on the visitor's first click, tap or key press. It plays over the hero and the text scenes
+         and fades out over the documentary chapters. -->
+    <audio id="hero-audio" src="audio/hero.mp3" loop preload="auto"></audio>
+    <button class="sound-btn pill" id="sound-btn" type="button" aria-pressed="false" hidden>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path class="body-shape" d="M2 6h3l4-3v10l-4-3H2z"/><path class="wave" d="M11 5.5c1 .8 1 4.2 0 5M12.8 3.8c2 1.6 2 6.8 0 8.4"/></svg>
+      <span>Play sound</span>
+    </button>
+
+    <div class="collage">
+      <img class="botanical b-sprig" src="images/botanicals/landing-sprig.svg" width="243" height="358" alt="" aria-hidden="true" decoding="async">
+      <img class="botanical b-blossom" src="images/botanicals/landing-blossom-branch.svg" width="359" height="164" alt="" aria-hidden="true" decoding="async">
+      <img class="botanical b-leaf" src="images/botanicals/landing-leaf-branch.svg" width="295" height="221" alt="" aria-hidden="true" decoding="async">
+      <img class="botanical b-bloom" src="images/botanicals/landing-bloom.svg" width="70" height="57" alt="" aria-hidden="true" decoding="async">
+      <img class="botanical b-hummingbird" src="images/botanicals/hummingbird.svg" width="111" height="287" alt="" aria-hidden="true" decoding="async">
+      <img class="botanical b-hbird-fly" src="images/botanicals/landing-hummingbird.svg" width="158" height="168" alt="" aria-hidden="true" decoding="async">
+      <img class="botanical b-flower-small" src="images/botanicals/landing-flower-small.svg" width="127" height="338" alt="" aria-hidden="true" decoding="async">
+      <img class="botanical b-wildflowers" src="images/botanicals/landing-wildflowers.svg" width="216" height="114" alt="" aria-hidden="true" decoding="async">
+      <img class="botanical b-flower-large" src="images/botanicals/landing-flower-large.svg" width="241" height="246" alt="" aria-hidden="true" decoding="async">
+
+      <div class="title-block">
+        <h1 class="site-title display">Navigating the <br>Unknown</h1>
+        <!--- <p class="byline">By Millie Dayaram</p> --->
+      </div>
+
+      <a class="tile t1" href="#a-new-life">
+        <figure>
+          <div class="photo"><img src="images/paintings/water-lilies.jpg" width="1000" height="960" alt="Impressionist painting of water lilies floating on a blue pond" decoding="async"></div>
+          <figcaption class="caption"><small>I</small>A New Life</figcaption>
+        </figure>
+      </a>
+      <a class="tile t2" href="#tragedy-strikes">
+        <figure>
+          <div class="photo"><img src="images/paintings/the-lovers.jpg" width="823" height="1000" alt="Painting of a young couple sitting together on a grassy hillside, the woman holding a small rose" decoding="async"></div>
+          <figcaption class="caption"><small>II</small>A Loss</figcaption>
+        </figure>
+      </a>
+      <a class="tile t4" href="#never-quit">
+        <figure>
+          <div class="photo"><img src="images/paintings/flowers-butterflies.jpg" width="684" height="1000" alt="Painting of a vase of wildflowers with butterflies drifting around it" decoding="async"></div>
+          <figcaption class="caption"><small>IV</small>A New Adventure</figcaption>
+        </figure>
+      </a>
+      <a class="tile t3" href="#the-diagnosis">
+        <figure>
+          <div class="photo"><img src="images/paintings/bouquet.jpg" width="679" height="1000" alt="Still life painting of a large bouquet of tulips, irises and roses against a dark background" decoding="async"></div>
+          <figcaption class="caption"><small>III</small>A Diagnosis</figcaption>
+        </figure>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Chapter I ===== -->
+  <section class="chapter ch-1" id="a-new-life" aria-labelledby="t-1">
+    <h2 class="chapter-title display" id="t-1">A New Life</h2>
+    <div class="film">
+      <!-- Film file: films/a-new-life.mp4 (plays when this chapter fills the screen) -->
+      <video class="doc-film" src="films/a-new-life.mp4" controls playsinline preload="metadata" hidden></video>
+      <button class="film-sound pill" type="button" hidden>Turn sound on</button>
+      <div class="film-placeholder">
+        <div class="play" aria-hidden="true"><svg viewBox="0 0 18 18"><path d="M2 1 L16 9 L2 17 Z"/></svg></div>
+        <span class="label">Film · A New Life</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Chapter I scene: A Dream Realized ===== -->
+  <section class="scene scene--left" id="a-dream-realized" aria-labelledby="t-a-dream-realized">
+    <div class="scene-film">
+      <div class="scene-media" aria-hidden="true">
+        <!-- Film file: films/a-dream-realized.mp4 (silent loop, plays while this scene is on screen) -->
+        <video src="films/a-dream-realized.mp4" muted loop playsinline preload="metadata" hidden></video>
+      </div>
+      <div class="scene-shade" aria-hidden="true"></div>
+      <img class="botanical scene-flower" src="images/botanicals/ch1-flower.svg" width="209" height="467" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <!-- <img class="botanical scene-sprig" src="images/botanicals/landing-sprig.svg" width="243" height="358" alt="" aria-hidden="true" loading="lazy" decoding="async"> -->
+    </div>
+    <div class="scene-content">
+      <div class="scene-block">
+        <p class="scene-title display" aria-hidden="true">A Dream Realized</p>
+        <div class="scene-part scene-text" id="part-a-dream-realized">
+          <h3 class="visually-hidden" id="t-a-dream-realized">A Dream Realized</h3>
+          <p>Eventually, Fred and Linda retired and they moved to St. Catharines. Linda was 52, Fred was 57. They chose St. Catharines because it was close to Niagara-on-the-Lake, a place of beauty for Linda, but also a central point in Niagara.</p>
+          <p>They sold everything in their house and moved. They chose Ontario because it had a thriving creative scene compared to Saskatchewan. With a hugely successful background in floral design, being surrounded by creativity and beauty was a huge deciding factor in moving.</p>
+          <p>“We were driving down the Niagara Parkway after only being here for 2 weeks. I looked out the window at all the beauty and felt that everything I thought and felt and wanted was manifested outside in the world around me. I could hardly believe we actually lived here.”</p>
+          <p>When we moved to Ontario we came with nothing, no bedding or dishes – nothing. We bought a condo and renovated it for about 6 months. Then we spent about a year and a half furnishing the entire place. We were buying a household. It was fun, a great adventure. We used our lack of household items as a way to find our way around Ontario. We would visit a new city to buy our sheets or towels. We went all over the place. Finally, we agreed that we were done!</p>
+          <p>Two weeks later, something completely unexpected happened.</p>
+        </div>
+      </div>
+    </div>
+    <div class="scene-chrome">
+      <button class="scene-pause" type="button" hidden>Pause film</button>
+    </div>
+  </section>
+
+  <!-- ===== Chapter II ===== -->
+  <section class="chapter ch-2" id="tragedy-strikes" aria-labelledby="t-2">
+    <h2 class="chapter-title display" id="t-2">A Loss</h2>
+    <div class="film">
+      <!-- Film file: films/tragedy-strikes.mp4 (plays when this chapter fills the screen) -->
+      <video class="doc-film" src="films/tragedy-strikes.mp4" controls playsinline preload="metadata" hidden></video>
+      <button class="film-sound pill" type="button" hidden>Turn sound on</button>
+      <div class="film-placeholder">
+        <div class="play" aria-hidden="true"><svg viewBox="0 0 18 18"><path d="M2 1 L16 9 L2 17 Z"/></svg></div>
+        <span class="label">Film · Tragedy Strikes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Chapter II scene: one film, two parts. The title changes as each part scrolls into view. ===== -->
+  <section class="scene" id="grieving" aria-label="Grieving and The Kindness of Strangers">
+    <div class="scene-film">
+      <div class="scene-media" aria-hidden="true">
+        <!-- Film file: films/bird-mobile.mp4 (silent loop, plays while this scene is on screen) -->
+        <video src="films/bird-mobile.mp4" muted loop playsinline preload="metadata" hidden></video>
+      </div>
+      <div class="scene-shade" aria-hidden="true"></div>
+      <img class="botanical scene-leaf" src="images/botanicals/ch2-leaf-branch.svg" width="295" height="245" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <img class="botanical scene-bird" src="images/botanicals/landing-hummingbird.svg" width="158" height="168" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    </div>
+    <div class="scene-content">
+      <div class="scene-block">
+        <p class="scene-title display" aria-hidden="true">The Kindness of Strangers</p>
+        <div class="scene-part scene-text" id="kindness-of-strangers">
+          <h3 class="visually-hidden">The Kindness of Strangers</h3>
+          <p>When I realized what had happened, I called 911 immediately. The woman on the phone told me what to do. She instructed me to pull him off the chair by the ankles to give him CPR. “Don’t worry,” she said, “You won’t hurt him.” I’ve never had to give CPR before, and that’s something I never want to do again.</p>
+          <p>I knew when I saw his face that he was dead and there wasn’t anything anyone could do for him.</p>
+          <p>The paramedics came and took him to the hospital. It was at that point that I thought I should tell someone what was happening. Fred and I had talked occasionally to the other people in our condo, but we mostly kept to ourselves. I knocked on my neighbour’s door and explained the situation. They said they would drive me.</p>
+          <p>I remember the Emergency Doctor coming to talk to me, saying they had tried all they could but couldn’t get Fred back. He asked me if I wanted to see Fred. I wasn’t sure what to do, but knew in the moment this was a decision I wanted to get right. After deliberating for awhile, I decided I would go see him.</p>
+          <p>When I saw his face, it looked like he was asleep. He looked like he was at peace.</p>
+        </div>
+      </div>
+      <div class="scene-block">
+        <p class="scene-title display" aria-hidden="true">Grieving</p>
+        <div class="scene-part scene-text" id="part-grieving">
+          <h3 class="visually-hidden">Grieving</h3>
+          <p>Fred and I used to get in the car and just drive and drive. After he passed, that became a lot harder for me. I always thought I was a strong person and confident. But, it’s surprising how much confidence you lose as a widow and how much effort, true effort, it takes to come out of it and believe in yourself. I’ve learned it’s not unusual [situation] for people who’ve lost a loved one.</p>
+          <p>You’ve been bleeding out for so long, you have to let that cauterize to start a new life. And that’s really hard to do. You have to be intentional – it doesn’t just happen. I knew I didn’t want to be someone who lived in the past and couldn’t get over what happened to me. I just wanted to keep building and make the most of what I could. So that’s what I did. Never quit, never surrender.</p>
+        </div>
+      </div>
+    </div>
+    <div class="scene-chrome">
+      <button class="scene-pause" type="button" hidden>Pause film</button>
+    </div>
+  </section>
+
+  <!-- ===== Chapter III ===== -->
+  <section class="chapter ch-3" id="the-diagnosis" aria-labelledby="t-3">
+    <h2 class="chapter-title display" id="t-3">A Diagnosis</h2>
+    <div class="film">
+      <!-- Film file: films/the-diagnosis.mp4 (plays when this chapter fills the screen) -->
+      <video class="doc-film" src="films/the-diagnosis.mp4" controls playsinline preload="metadata" hidden></video>
+      <button class="film-sound pill" type="button" hidden>Turn sound on</button>
+      <div class="film-placeholder">
+        <div class="play" aria-hidden="true"><svg viewBox="0 0 18 18"><path d="M2 1 L16 9 L2 17 Z"/></svg></div>
+        <span class="label">Film · The Diagnosis</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Chapter III scene: The Diagnosis ===== -->
+  <section class="scene scene--wide" id="the-diagnosis-scene" aria-labelledby="t-the-diagnosis-scene">
+    <div class="scene-film">
+      <div class="scene-media" aria-hidden="true">
+        <!-- Film file: films/the-diagnosis-scene.mp4 (silent loop, plays while this scene is on screen) -->
+        <video src="films/the-diagnosis-scene.mp4" muted loop playsinline preload="metadata" hidden></video>
+      </div>
+      <div class="scene-shade" aria-hidden="true"></div>
+      <img class="botanical scene-leaf" src="images/botanicals/ch2-leaf-branch.svg" width="295" height="245" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    </div>
+    <div class="scene-content">
+      <div class="scene-block">
+        <p class="scene-title display" aria-hidden="true">How to Cope</p>
+        <div class="scene-part scene-text" id="part-the-diagnosis-scene">
+          <h3 class="visually-hidden" id="t-the-diagnosis-scene">How to Cope </h3>
+          <p>About a year and a half later after Fred died, I felt a lump on my neck. I waited two weeks, but nothing changed, so I went and saw the doctor. They sent me for tests. The biospy came back positive showing cancerous lumps. The CT scan also showed a large growth on my thyroid. After the surgery, I had one chemotherapy treatment and thirty radiation treatments, so that was five treatments a week for six weeks.</p>
+          <p>It was an interesting experience because I knew I wasn’t feeling well, I knew something was wrong prior to that. But I also knew in my spirit and head, I kept hearing “This is not a sickness unto death”. I heard it for at least 2-3 weeks. At one point I said, “God, I hear you, but I don’t know exactly what you mean”. After I was diagnosed, I realized this was preparing me for what was to come. I knew I did not need to be afraid, believing this wasn’t going to kill me. I went into the situation viewing it like an infection, something inconvenient. I was never scared or freaked out that I had cancer. The things that phased me had nothing to do with cancer. Dealing with other people’s reactions, my family, healthcare people – those were the real challenges. But, I was not afraid at all.</p>
+          <p>My sister helped me so much. She took me for surgery and told me, “You are one brave woman”. I’ll never forget that. She’s actually a nurse herself – she’s no stranger to seeing people in crisis. And I thought, I’m always a product of wanting to have a relationship with God and be closer to him. That is how I cope. He just assured me that, while I didn’t like what was happening, that I would be okay and process my way through it.</p>
+          <p>Being in the hospital and going through the treatments, I certainly learned what compassion was for other people, specifically in terms of suffering. Compared with my situation, I saw people in such dire situations. I wondered how someone could cope without the friendship and protection of a faith life. Because that is how I survived.</p>
+        </div>
+      </div>
+    </div>
+    <div class="scene-chrome">
+      <button class="scene-pause" type="button" hidden>Pause film</button>
+    </div>
+  </section>
+
+  <!-- ===== Chapter IV ===== -->
+  <section class="chapter ch-4" id="never-quit" aria-labelledby="t-4">
+    <h2 class="chapter-title display" id="t-4">A New Adventure</h2>
+    <div class="film">
+      <!-- Film file: films/never-quit.mp4 (plays when this chapter fills the screen) -->
+      <video class="doc-film" src="films/never-quit.mp4" controls playsinline preload="metadata" hidden></video>
+      <button class="film-sound pill" type="button" hidden>Turn sound on</button>
+      <div class="film-placeholder">
+        <div class="play" aria-hidden="true"><svg viewBox="0 0 18 18"><path d="M2 1 L16 9 L2 17 Z"/></svg></div>
+        <span class="label">Film · Never Quit</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Chapter IV scene: New Memories, a photo gallery over a fixed film ===== -->
+  <!-- To add photos: put them in images/gallery/ with these names, or copy a <figure> and change the file and caption.
+       Sizes: size-l (full column), size-m, size-s; add "push" to sit a photo on the right of its column. -->
+  <section class="scene scene--gallery" id="new-memories" aria-labelledby="t-new-memories">
+    <div class="scene-film">
+      <div class="scene-media" aria-hidden="true">
+        <!-- Film file: films/window.mp4 (silent loop, plays while this scene is on screen) -->
+        <video src="films/window.mp4" muted loop playsinline preload="metadata" hidden></video>
+      </div>
+      <div class="scene-shade" aria-hidden="true"></div>
+      <img class="botanical scene-leaf" src="images/botanicals/ch2-leaf-branch.svg" width="295" height="245" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    </div>
+    <div class="scene-content">
+      <div class="scene-block">
+        <p class="scene-title display" aria-hidden="true">New Memories</p>
+        <div class="scene-part" id="part-new-memories">
+          <h3 class="visually-hidden" id="t-new-memories">New Memories</h3>
+        </div>
+        <div class="gallery">
+          <div class="g-col">
+            <figure class="g-item size-l">
+              <div class="g-frame" style="--ratio: 489 / 367" data-file="images/gallery/linda-family.jpeg"><img src="images/gallery/linda-family.jpeg" alt="Linda with some of her siblings" loading="lazy" decoding="async"></div>
+              <figcaption>Linda &amp; some of her siblings</figcaption>
+            </figure>
+            <figure class="g-item size-m">
+              <div class="g-frame" style="--ratio: 329 / 439" data-file="images/gallery/colleen.jpeg"><img src="images/gallery/colleen.jpeg" alt="Linda and Colleen" loading="lazy" decoding="async"></div>
+              <figcaption>Linda &amp; Colleen</figcaption>
+            </figure>
+            <figure class="g-item size-l">
+              <div class="g-frame" style="--ratio: 453 / 604" data-file="images/gallery/toastmasters-2.jpeg"><img src="images/gallery/toastmasters-2.jpeg" alt="Linda at Toastmasters" loading="lazy" decoding="async"></div>
+              <figcaption>Linda at Toastmasters</figcaption>
+            </figure>
+          </div>
+          <div class="g-col">
+            <figure class="g-item size-m push">
+              <div class="g-frame" style="--ratio: 438 / 584" data-file="images/gallery/linda-bell.jpeg"><img src="images/gallery/linda-bell.jpeg" alt="Linda ringing the bell after finishing her radiation treatments" loading="lazy" decoding="async"></div>
+              <figcaption>Ringing the bell after completing all her radiation treatments</figcaption>
+            </figure>
+            <figure class="g-item size-l">
+              <div class="g-frame" style="--ratio: 421 / 561" data-file="images/gallery/lorraine.jpeg"><img src="images/gallery/lorraine.jpeg" alt="Linda’s friend Lorraine" loading="lazy" decoding="async"></div>
+              <figcaption>Friend Lorraine</figcaption>
+            </figure>
+            <figure class="g-item size-m push">
+              <div class="g-frame" style="--ratio: 557 / 742" data-file="images/gallery/linda-deer.jpeg"><img src="images/gallery/linda-deer.jpeg" alt="Linda taking a selfie with a deer statue" loading="lazy" decoding="async"></div>
+              <figcaption>Linda taking a selfie with a deer</figcaption>
+            </figure>
+          </div>
+          <div class="g-col">
+            <figure class="g-item size-l">
+              <div class="g-frame" style="--ratio: 343 / 457" data-file="images/gallery/paul.jpeg"><img src="images/gallery/paul.jpeg" alt="Linda and Paul" loading="lazy" decoding="async"></div>
+              <figcaption>Linda &amp; Paul</figcaption>
+            </figure>
+            <figure class="g-item size-s push">
+              <div class="g-frame" style="--ratio: 281 / 375" data-file="images/gallery/judith.jpeg"><img src="images/gallery/judith.jpeg" alt="Linda and Judith" loading="lazy" decoding="async"></div>
+              <figcaption>Linda &amp; Judith</figcaption>
+            </figure>
+            <figure class="g-item size-m">
+              <div class="g-frame" style="--ratio: 431 / 574" data-file="images/gallery/toastmasters-1.jpeg"><img src="images/gallery/toastmasters-1.jpeg" alt="Linda at Toastmasters" loading="lazy" decoding="async"></div>
+              <figcaption>Linda at Toastmasters</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scene-chrome">
+      <button class="scene-pause" type="button" hidden>Pause film</button>
+    </div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <div class="colophon-inner">
+    <p class="display">Navigating the Unknown</p>
+    <p class="label">A documentary by Millie Dayaram</p>
+    <a class="to-top" href="#top-of-page">Back to the beginning</a>
+    <p class="credits">
+      Paintings, from the Art Institute of Chicago:
+      Claude Monet, <cite>Water Lilies</cite>, 1906 ·
+      William Powell Frith, <cite>The Lovers</cite>, 1855 ·
+      attributed to Jan Brueghel the Elder, <cite>Bouquet of Flowers in an Earthenware Vase</cite>, c. 1610 ·
+      Odilon Redon, <cite>Still Life with Flowers</cite>, 1905.
+    </p>
+    <div class="sources">
+      <p class="sources-label">Film and sound:</p>
+      <ul>
+        <li>joergip31. “Water Lily, Stream, Kirchfleet.” <cite>Pixabay</cite>, 17 Aug. 2022, <a href="https://pixabay.com/videos/water-lily-stream-kirchfleet-128212/">pixabay.com/videos/water-lily-stream-kirchfleet-128212/</a>. Accessed 29 Oct. 2026.</li>
+        <li>Kyster. “Woodpecker and Other Birds on a Spring Morning 2013-04-01.Wav.” <cite>Freesound</cite>, 13 Jan. 2013, <a href="https://freesound.org/people/Kyster/sounds/182740/">freesound.org/people/Kyster/sounds/182740/</a>. Accessed 29 Oct. 2026.</li>
+        <li>Piash, Ahnaf. “Breathtaking Niagara Falls With Vibrant Rainbow Free Stock Video Footage, Royalty-Free 4K &amp; HD Video Clip.” <cite>Pexels</cite>, 20 Apr. 2026, <a href="https://www.pexels.com/video/breathtaking-niagara-falls-with-vibrant-rainbow-37152332/">www.pexels.com/video/breathtaking-niagara-falls-with-vibrant-rainbow-37152332/</a>. Accessed 29 Oct. 2026.</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
